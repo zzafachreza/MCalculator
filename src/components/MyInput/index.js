@@ -11,6 +11,8 @@ export default function MyInput({
   iconname,
   onChangeText,
   value,
+  textAlign,
+  pakaiicon = true,
   keyboardType,
   secureTextEntry,
   styleInput,
@@ -26,17 +28,18 @@ export default function MyInput({
     <>
       <View
         style={{
-          flexDirection: 'row',
+          flexDirection: pakaiicon ? 'row' : 'column',
           alignItems: 'center',
           paddingVertical: 3,
         }}>
-        <Icon type="ionicon" name={iconname} color={colorIcon} size={16} />
+        {pakaiicon && <Icon type="ionicon" name={iconname} color={colorIcon} size={16} />}
         <Text
           style={{
             fontFamily: fonts.secondary[600],
             color: colors.primary,
             left: 10,
-            fontSize: windowWidth / 35,
+            fontSize: windowWidth / 38,
+            textAlign: 'center',
             ...styleLabel,
           }}>
           {label}
@@ -48,7 +51,8 @@ export default function MyInput({
             fontFamily: fonts.secondary[600],
             color: colors.primary,
             left: 10,
-            fontSize: 14,
+            fontSize: windowWidth / 38,
+            textAlign: 'center',
             ...styleLabel,
           }}>
           {label2}
@@ -70,6 +74,7 @@ export default function MyInput({
           backgroundColor: colors.tertiary,
           paddingLeft: 10,
           color: colors.black,
+          textAlign: textAlign,
           fontSize: 12,
           fontFamily: fonts.primary[400],
           ...styleInput,

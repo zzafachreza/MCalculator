@@ -45,9 +45,7 @@ export default function Register({ navigation }) {
     const [data, setData] = useState({
         nik: '',
         password: '',
-        username: '',
         nama_lengkap: '',
-        nik: '',
         email: '',
         tipe: 'MC',
         alamat: ''
@@ -55,7 +53,7 @@ export default function Register({ navigation }) {
 
     const simpan = () => {
         if (
-            data.nik.length === 0 &&
+            data.company.length === 0 &&
             data.nama_lengkap.length === 0 &&
             data.telepon.length === 0 &&
             data.alamat.length === 0 &&
@@ -66,9 +64,9 @@ export default function Register({ navigation }) {
             showMessage({
                 message: 'all form is required !',
             });
-        } else if (data.nik.length === 0) {
+        } else if (data.telepon.length === 0) {
             showMessage({
-                message: 'nik is required !',
+                message: 'phone is required !',
             });
         } else if (data.nama_lengkap.length === 0) {
             showMessage({
@@ -127,33 +125,7 @@ export default function Register({ navigation }) {
 
 
 
-                <MyGap jarak={10} />
-                <MyInput
-                    placeholder="enter your NIK"
-                    label="NIK"
-                    iconname="card"
-                    value={data.nik}
-                    onChangeText={value =>
-                        setData({
-                            ...data,
-                            nik: value,
-                        })
-                    }
-                />
 
-                <MyGap jarak={10} />
-                <MyInput
-                    placeholder="enter your username"
-                    label="Username"
-                    iconname="at"
-                    value={data.username}
-                    onChangeText={value =>
-                        setData({
-                            ...data,
-                            username: value,
-                        })
-                    }
-                />
 
                 <MyGap jarak={10} />
                 <MyInput
@@ -169,6 +141,7 @@ export default function Register({ navigation }) {
                     }
                 />
 
+
                 <MyGap jarak={10} />
                 <MyInput
                     placeholder="enter your email"
@@ -182,6 +155,20 @@ export default function Register({ navigation }) {
                         })
                     }
                 />
+                <MyGap jarak={10} />
+                <MyInput
+                    placeholder="enter your institution/company"
+                    label="Institution/Company"
+                    iconname="business"
+                    value={data.company}
+                    onChangeText={value =>
+                        setData({
+                            ...data,
+                            company: value,
+                        })
+                    }
+                />
+
 
                 <MyGap jarak={10} />
                 <MyInput
@@ -197,7 +184,20 @@ export default function Register({ navigation }) {
                         })
                     }
                 />
+                <MyGap jarak={10} />
+                <MyInput
 
+                    label="Phone Number (WA)"
+                    iconname="call"
+                    placeholder="enter your phone number (WA)"
+                    value={data.telepon}
+                    onChangeText={value =>
+                        setData({
+                            ...data,
+                            telepon: value,
+                        })
+                    }
+                />
 
                 <MyGap jarak={10} />
                 <MyInput

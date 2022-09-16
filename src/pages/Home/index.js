@@ -63,14 +63,13 @@ export default function Home({ navigation }) {
               fontFamily: fonts.secondary[400],
               fontSize: windowWidth / 28,
               color: colors.white
-            }}>Selamat datang, {user.nama_lengkap}</Text>
+            }}>Welcome, {user.nama_lengkap}</Text>
             <Text style={{
               fontFamily: fonts.secondary[600],
               fontSize: windowWidth / 20,
               color: colors.white
             }}>
-              Kinematic Viscosity and
-              Viscosity Index Calculator
+              Moisture Calculator
             </Text>
           </View>
 
@@ -94,7 +93,7 @@ export default function Home({ navigation }) {
               fontFamily: fonts.secondary[600],
               fontSize: windowWidth / 30,
               color: colors.primary
-            }}>Keluar</Text>
+            }}>Logout</Text>
           </TouchableOpacity>
         </View>
 
@@ -115,7 +114,7 @@ export default function Home({ navigation }) {
             a: x,
           })
 
-        }} keyboardType='numeric' value={data.a} iconname='create-outline' label="Dew Point (°C)" />
+        }} keyboardType='numeric' textAlign="center" pakaiicon={false} value={data.a} iconname='create-outline' label="Dew Point (°C)" />
 
         <MyGap jarak={20} />
         <MyButton Icons="refresh" title="Calculate" warna={colors.primary} onPress={() => {
@@ -146,7 +145,7 @@ export default function Home({ navigation }) {
           var hPa = (parseFloat(A) * parseFloat(_cek2)).toFixed(7);
           var pa = (100 * hPa).toFixed(7);
           var mmHg = (0.007500638 * pa);
-          var ppm = (mmHg / 760 * 1000000).toFixed(2);
+          var ppm = (mmHg / 760 * 1000000).toFixed(4);
 
           console.log('CTAMBAHA', CTAMBAHA)
           console.log('BKALIA', BKALIA)
@@ -171,12 +170,13 @@ export default function Home({ navigation }) {
           justifyContent: 'center',
           alignItems: 'center'
         }}>
-          <Text style={{
-            padding: 5,
-            color: colors.primary,
-            fontFamily: fonts.secondary[600],
-            fontSize: windowWidth / 35
-          }}>Moisture Content - H2O (ppm)</Text>
+
+
+          <View style={{ flexDirection: 'row', alignItems: 'flex-start' }}>
+            <Text style={{ fontSize: 20, lineHeight: 18, color: colors.primary, fontFamily: fonts.secondary[600], fontSize: windowWidth / 35 }}>Moisture Content - H</Text>
+            <Text style={{ fontSize: 7, lineHeight: 25, color: colors.primary, fontFamily: fonts.secondary[600], fontSize: windowWidth / 35 }}>2</Text>
+            <Text style={{ fontSize: 20, lineHeight: 18, color: colors.primary, fontFamily: fonts.secondary[600], fontSize: windowWidth / 35 }}>O (ppm)</Text>
+          </View>
           <View style={{
             backgroundColor: colors.tertiary,
             width: '100%',
